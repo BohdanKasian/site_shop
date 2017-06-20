@@ -1,0 +1,32 @@
+{% extends 'shop/base.html' %}
+
+
+{% block content %}
+<body class="backg">
+	<div class="splash">
+  		<div class="container" style="text-align: center">
+    	<h1>Техника для вас</h1>
+  		</div>
+	</div>
+	
+	<div class="block">
+	    <div class="element">
+	        <a href="{% url "pc" %}" class="a">
+	            <div class="img">
+	                <img src="http://www.itshneg.ru/wp-content/uploads/2014/07/laptop1.png">
+	                <div class="text"><h1>Ноутбуки</h1></div>
+	            </div>
+	        </a>
+	    </div>
+
+	    <div class="element1">
+	        <a href="#" class="a">
+	            <div class="img">
+	                <img src="http://березинский.dp.ua/wp-content/uploads/2014/08/846.jpg">
+	                <div class="text"><h1>Смартфоны</h1></div>
+	            </div>
+	        </a>
+	    </div>
+	</div>
+</body>
+{% endblock content %}

@@ -1,0 +1,90 @@
+.splash { 
+	/* Отступ для содержимого, помещенного в splash */
+	padding:2em 0 2em;
+	/* Картинка, которая используются для splash */
+	background-image:url(../fon/10450.jpg);
+	/* Масштабируем картинку с сохранением пропорций */
+	background-size:cover;
+	/* Запрещаем фоновому изображению прокручиваться, т.е. делаем его неподвижным */
+	background-attachment:fixed;
+	/* Цвет текста */
+	color:#fff;
+	/* Выравниваем текста внутри splash по центру */
+	text-align:center;
+}
+
+.backg {
+	color:#fff;
+	background-image:url(../fon/b1.png);
+	background-size:cover;
+	background-attachment:fixed;
+}
+
+
+
+.leftimg {
+	float:left; /* Выравнивание по левому краю */
+	padding-top: 2em;
+	width: 300px;
+
+
+}
+
+.block {
+	padding-left: 110px;
+	font-size: 14px;
+}
+
+.block .element{
+	margin: 0px 0px 0px 0px;
+	padding:  0px 0px 0px 0px;
+	float: left;
+}
+
+
+.block .img{
+	text-decoration: none;
+}
+
+
+.block .img img {
+	margin: 5px 0px 0px 10px;
+	padding: 0;
+	width: 500px;
+	color: #fff;
+}
+
+.block .text{
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	size: 100px;
+	color: #fff;
+}
+
+.block .a:hover{
+	color: #fff;
+}
+
+.block .a:visited{
+	color: #fff;
+}
+
+.block .element1 {
+	margin-top: 5px ; 
+	margin-left: 50em;
+
+}
+
+.imgcenter{
+	width: 70%;
+	/* padding-top: 3px; */
+	margin: 4px 0px 0px 175px;
+	background-size:cover;
+
+}
+
+.product_hover:hover::after{
+	content: attr(data-title);
+	z-index: 1;
+}

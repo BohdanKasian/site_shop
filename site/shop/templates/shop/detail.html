@@ -1,0 +1,27 @@
+{% extends 'shop/base.html' %}
+{% csrf_token %}
+
+{% block content %}
+	<div class="container-fluid" style="padding-top:15px">
+		<div class="row-fluid">
+			<div class="col-sm-4">
+				<img src="{{ detail.link_to_image }}" alt="">
+				<p><h2>{{ detail.product_name }}</h2></p> 
+				<h4>{{ detail.description }}</h4>
+			</div>
+			<div class="col-sm-4" style="padding-top:35px" >			
+				<p><strong>Процесор: </strong>{{ detail.processor }}</p>
+				<p><strong>Видео карта: </strong>{{ detail.video_card }}</p>
+				<p><strong>Разрешение экрана: </strong>{{ detail.resolution }}</p>
+				<p><strong>Цвет: </strong>{{ detail.color }}</p>
+				<p><strong>Вес: </strong>{{ detail.weight }}</p>
+			</div>
+			<div class="col-sm-4">
+				{{ detail.price }}
+				и там доставку впихнуть(внизу)
+			</div>	
+		</div>	
+	</div>
+	
+	
+{% endblock content %}

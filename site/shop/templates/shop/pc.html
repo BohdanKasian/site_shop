@@ -1,0 +1,51 @@
+{% extends 'shop/base.html' %}
+
+
+{% block content %}
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="col-sm-2">
+			<div class="list-group">
+				<a href="{% url "laptop" %}" class="list-group-item">Все ноутбуки</a>
+				<a href="{% url "simple" %}" class="list-group-item">Для несложных задач</a>
+				<a href="{% url "universal" %}" class="list-group-item">Универсальные</a>
+				<a href="{% url "lungs" %}" class="list-group-item">Тонкие и легкие</a>
+				<a href="{% url "gaming" %}" class="list-group-item">Геймерские</a>
+			</div>
+		</div>
+		<div class="col-sm-10">
+			<a href="{% url "laptop" %}"><img class="imgcenter" src="https://kompklinika.ua/wp-content/uploads/2015/08/Notebook.png"></a>
+		</div>
+	</div>
+</div>
+<div class="container-fluid ">
+	<div class="row-fluid ">
+		<div class="text-center">
+			<div class="col-sm-3">
+				<a href="{% url "simple" %}">
+					<img src="http://i1.rozetka.ua/goods/portal/constructors/units/groups/114/114284.jpg">
+					<h4>Для несложных задач</h4>
+				</a>
+			</div>
+			<div class="col-sm-3">
+				<a href="{% url "universal" %}">
+					<img src="http://i2.rozetka.ua/goods/portal/constructors/units/groups/114/114296.jpg">
+					<h4>Универсальные</h4>
+				</a>
+			</div>
+			<div class="col-sm-3">
+				<a href="{% url "lungs" %}">
+					<img src="http://i1.rozetka.ua/goods/portal/constructors/units/groups/114/114308.jpg">
+					<h4>Тонкие и легкие</h4>
+				</a>
+			</div>
+			<div class="col-sm-3">
+				<a href="{% url "gaming" %}">
+					<img src="http://i1.rozetka.ua/goods/portal/constructors/units/groups/113/113927.jpg">
+					<h4>Геймерские</h4>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>	
+{% endblock %}

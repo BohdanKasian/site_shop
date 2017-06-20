@@ -1,0 +1,57 @@
+{% extends 'shop/base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="col-sm-2">
+		</div>
+		<div class="col-sm-10">
+			{% for item1, item2, item3 in simple %}
+				<div class="container-fluid">
+					<div class="row-fluid">
+						{% if item1 %}
+							<div class="col-sm-4">
+								<div class="thumbnail product_hover" data-title="{{ item1.processor }} / {{ item1.video_card }} / {{ item1.resolution }} / Цена:{{ item1.price }}" >
+									<a href="{% url "detail" item1.id %}">
+										<img src="{{ item1.link_to_image }}" style="height:200px; width:auto" >
+										<div class="caption">
+											<p>{{item1.product_name}}</p>
+										</div>
+									</a>
+									<p> <button type="button" class="btn btn-primary">Купить</button></p>
+								</div>
+							</div>
+						{% endif %}
+						{% if item2 %}
+							<div class="col-sm-4">
+								<div class="thumbnail product_hover" data-title="{{ item2.processor }} / {{ item2.video_card }} / {{ item2.resolution }} / Цена:{{ item2.price }}" >
+									<a href="{% url "detail" item2.id %}">
+										<img src="{{ item2.link_to_image }}" style="height:200px; width:auto" >
+										<div class="caption">
+											<p>{{item2.product_name}}</p>
+										</div>
+									</a>
+									<p> <button type="button" class="btn btn-primary">Купить</button></p>
+								</div>
+							</div>
+						{% endif %}
+						{% if item3 %}
+							<div class="col-sm-4" >
+								<div class="thumbnail product_hover" data-title="{{ item3.processor }} / {{ item3.video_card }} / {{ item3.resolution }} / Цена:{{ item3.price }}" >
+									<a href="{% url "detail" item3.id %}">
+										<img src="{{ item3.link_to_image }}" style="height:200px; width:auto" >
+										<div class="caption">
+											<p>{{item3.product_name}}</p>
+										</div>
+									</a>
+									<p> <button type="button" class="btn btn-primary">Купить</button></p>
+								</div>
+							</div>
+						{% endif %}
+					</div>
+				</div>		 
+			{% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock content %}
