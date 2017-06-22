@@ -58,8 +58,8 @@
 										<div class="caption">
 											<p>{{item1.product_name}}</p>
 										</div>
+									<p><button type="button" class="btn btn-primary">Подробно</button></p>
 									</a>
-									<p> <button type="button" class="btn btn-primary">Купить</button></p>
 								</div>
 							</div>
 						{% endif %}
@@ -72,7 +72,11 @@
 											<p>{{item2.product_name}}</p>
 										</div>
 									</a>
-									<p> <button type="button" class="btn btn-primary">Купить</button></p>
+									<p><form action="{% url "cart:CartAdd" item2.id %}" method="post">{% csrf_token %}
+
+
+										<input type="submit" class="btn btn-primary" value="Купить">
+									</form></p>									
 								</div>
 							</div>
 						{% endif %}
@@ -84,8 +88,8 @@
 										<div class="caption">
 											<p>{{item3.product_name}}</p>
 										</div>
+									<p> <button type="button" class="btn btn-primary">Подробно</button></p>
 									</a>
-									<p> <button type="button" class="btn btn-primary">Купить</button></p>
 								</div>
 							</div>
 						{% endif %}

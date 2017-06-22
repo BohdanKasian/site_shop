@@ -41,7 +41,48 @@
                               <h4 class="modal-title">Ваши заказы</h4>
                             </div>
                             <div class="modal-body">
-                              <p>БЛА БЛАБЛА</p>
+
+                                <h1>Ваша корзина товаров</h1>
+                                  <table class="cart">
+                                    <thead>
+                                      <tr>
+                                        <th>Изображение</th>
+                                        <th>Продукт</th>
+                                        <th>Количество</th>
+                                        <th>Удалить</th>
+                                        <th>Полная цена</th>
+                                        <th>Цена</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      {% for item in cart %}
+                                        {% with product=item.product %}
+                                          <tr>
+                                            <td>
+                                              <a href="{% url "detail" product.id %}">
+                                                <img src="{{ product.link_to_image }}" alt="" />
+                                              </a>
+                                            </td>
+                                            <td>{{ product.product_name }}</td>
+                                            <td>{{ item.quantity }}</td>
+                                            <td><a href="{% url "cart:CartRemove" product.id %}"><button class="btn btn-danger">Удалить</button></a></td>
+                                            <td class="num">{{ item.price }} руб.</td>
+                                            <td class="num">{{ item.total_price }} руб.</td>
+                                          </tr>
+                                        {% endwith %}
+                                      {% endfor %}
+                                        <tr >
+                                          <td>Сумма всех покупок</td>
+                                          <td colspan="4"></td>
+                                          <td class="num">{{ cart.get_total_price }} грн.</td>
+                                        </tr>
+                                    </tbody>
+                                  </table>
+                                  <p>
+                                    <a href="{% url "laptop" %}" class="btn">Все ноутбуки</a>
+                                    <a href="#">Оформить заказ</a>
+                                  </p>
+                              
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

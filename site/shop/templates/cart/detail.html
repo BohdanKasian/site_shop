@@ -1,0 +1,60 @@
+{% extends "shop/base.html" %}
+
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="col-sm-11">
+      <div class="container">
+        <h2>Ваша корзина товаров</h2>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Изображение</th>
+              <th>Название</th>
+              <th>Количество</th>
+              <th>Удалить</th>
+              <th>Полная цена</th>
+              <th>Цена</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in cart %}
+              {% with product=item.product %}
+                <tr>
+                  <td >
+                    <a href="{% url "detail" product.id %}">
+                      <img src="{{ product.link_to_image }}" alt="" style="weight:auto; max-height:200px;"/>
+                    </a>
+                  </td>
+                  <td>{{ product.product_name }}</td>
+                  <td>{{ item.quantity }}</td>
+                  <td>
+                    <a href="{% url "cart:CartRemove" product.id %}"><button class="btn btn-danger">Удалить</button></a>
+                  </td>
+                  <td>{{ item.price }} грн.</td>
+                  <td>{{ item.total_price }} грн.</td>
+                </tr>
+              {% endwith %}
+            {% endfor %}
+                <tr>
+                  <td>Цена всех покупок</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>{{ cart.get_total_price }} грн.</td>
+                </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-sm-1">
+      <p>
+        <a href="{% url "laptop" %}" class="btn">Все ноутбуки</a>
+        <a href="#">Оформить заказ</a>
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

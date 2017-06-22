@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.views.decorators.cache import cache_page
+from django.views.decorators.csrf import csrf_protect, csrf_exempt
+from django.shortcuts import render,render_to_response, get_object_or_404, redirect, HttpResponseRedirect
 from django.core.urlresolvers import reverse
-from django.shortcuts import render, get_object_or_404, redirect, HttpResponseRedirect
 from .models import Base, Product
 from django.views.generic.detail import DetailView
-from .forms import ProductForm
+from cart.forms import CartAddProductForm
 
 
 def index(request):
@@ -130,11 +131,21 @@ class laptop:
 		}
 		return render(request, "shop/gaming.html", context)
 
-	def detail(request, item_id):
-		laptop_detail = get_object_or_404(laptop.laptop_all, id=item_id)
+	@cache_page(60 * 15)
+	@csrf_protect
+	def detail(request, product_id):
+		laptop_detail = get_object_or_404(laptop.laptop_all, id=product_id)
 		template = "shop/detail.html"
 		context = {
 			"detail": laptop_detail
 		}
 		return render(request, template, context)
 
+@cache_page(60 * 15)
+@csrf_exempt
+def ProductDetail(request, product_id):
+	product = get_object_or_404(laptop.laptop_all, id=product_id)
+	cart_product_form = CartAddProductForm()
+	return render(request,'shop/detail.html',
+							{'detail': product,
+							'cart_product_form': cart_product_form})
